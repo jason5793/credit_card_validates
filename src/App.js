@@ -24,6 +24,7 @@ const App = () => {
       <span>Enter Credit Card:</span>
       <input 
       className="input-fields"
+      placeholder="Enter your credit card"
         type="text"
         onChange={(e) => validate(e.target.value)}
         style={{ padding: "8px", margin: "10px 0", borderRadius: "5px", border: "1px solid #ccc" }}
