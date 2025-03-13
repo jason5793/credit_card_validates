@@ -15,6 +15,12 @@ const App = () => {
   return (
     <div style={{ marginLeft: "200px", display: "flex", flexDirection: "column" }}>
       <h2>Validate Credit Card in React.js</h2>
+      <span>Enter your name</span>
+      <input 
+      className="input-fields"
+      type="text"  
+      placeholder="Enter name"
+      />
       <span>Enter Credit Card:</span>
       <input 
       className="input-fields"
