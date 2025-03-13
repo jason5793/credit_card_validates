@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
+import Validator from "validator";
 import './App.css';
+const App = () => {
+  const [errorMessage, setErrorMessage] = useState("");
 
-function App() {
+  const validate = (value) => {
+    if (Validator.isCreditCard(value)) {
+      setErrorMessage("✅ Valid Credit Card Number");
+    } else {
+      setErrorMessage("❌ Enter a valid Credit Card Number!");
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ marginLeft: "200px", display: "flex", flexDirection: "column" }}>
+      <h2>Validate Credit Card in React.js</h2>
+      <span>Enter Credit Card:</span>
+      <input 
+      className="input-fields"
+        type="text"
+        onChange={(e) => validate(e.target.value)}
+        style={{ padding: "8px", margin: "10px 0", borderRadius: "5px", border: "1px solid #ccc" }}
+      />
+      <p style={{ color: errorMessage.includes("Valid") ? "green" : "red" }}>{errorMessage}</p>
     </div>
   );
-}
-
+};
 export default App;
